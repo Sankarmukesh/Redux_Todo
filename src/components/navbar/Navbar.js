@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { LogoutUser } from "../../redux/actions/LoginActions";
 
 import "./navbar.scss";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const image = useSelector((state) => state.loginReducer.userData.picture);
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
 
@@ -77,18 +81,37 @@ const Navbar = () => {
   }, 1000);
 
   return (
-    <header className="header" style={{ background: "#24292f",height:"60px" ,display:"flex",alignItems:"center"}}>
-     
-      <div className="wrapper" style={{display:"flex",alignItems:"center",width:"90%",margin:"auto",justifyContent:"space-between"}}>
+    <header
+      className="header"
+      style={{
+        // background: "#24292f",
+        height: "60px",
+        display: "flex",
+        alignItems: "center",
+        borderBottom:"1px solid #F1F3F4"
+      }}
+    >
+      <div
+        className="wrapper"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          width: "100%",
+          margin: "auto",
+          justifyContent: "space-between",
+          
+        }}
+      >
         <Link to="/" style={{ textDecoration: "none" }}>
           <div style={{ display: "flex", alignItems: "center" }}>
             <div className="backI"></div>
             <span>
+
               <strong
                 style={{
                   top: "16px",
                   left: "220px",
-                  margin: "0 auto 0 90px",
+                  // margin: "0 auto 0 90px",
                   height: "19px",
                   textAlign: "left",
                   paddingRight: "60px",
@@ -97,19 +120,19 @@ const Navbar = () => {
                   textTransform: "uppercase",
                   opacity: "1",
                   fontSize: "19px",
-                  fontWeight:"500",
+                  display:"flex",justifyContent:"center",alignItems:"center",
+                  fontWeight: "500",
                   whiteSpace: "nowrap",
                 }}
               >
-              <span style={{ color: "orange" }}>R</span>edux{" "}
-                <span style={{ color: "orange",marginLeft:"5px" }}>T</span>odo{" "}
-               
+                          <img src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png" alt="" width={50} height={50}/>
+                <span style={{ color:"#5F6368" }}>R</span><span style={{color:"#5F6368"}}>edux</span>{" "}
+                <span style={{ color:"#5F6368", marginLeft: "5px" }}>T</span><span style={{color:"#5F6368"}}>odo</span>{" "}
               </strong>
             </span>
           </div>
         </Link>
 
-     
         <div
           style={{
             display: "flex",
@@ -117,17 +140,33 @@ const Navbar = () => {
             alignItems: "center",
           }}
         >
-         
-
-         <div className="bottom" style={{display:"flex"}}>
-        
-         
-
-          <div className="item" style={{ fontSize: "20px",color:"orange" ,cursor:"pointer"}}>
-          <i class="fa-solid fa-power-off"></i>
+          <div
+            className="bottom"
+            style={{ display: "flex", gap: "10px", alignItems: "center",justifyContent:"center",marginRight:"20px" }}
+          >
+            {image!=="" && (
+              <div className="item profile">
+                <img
+                  src={image}
+                  alt=""
+                  className="avatar"
+                  width={30}
+                  height={30}
+                  style={{ borderRadius: "50%" }}
+                />
+              </div>
+            )}
+            {image!=="" ? <div
+              className="item"
+              style={{ fontSize: "20px", color: "orange", cursor: "pointer",transform:"translateY(-3px)" }}
+              onClick={() => {
+                dispatch(LogoutUser());
+                navigate("/");
+              }}
+            >
+              <i class="fa-solid fa-power-off"></i>
+            </div> : <span style={{color:"white"}}>Please Login to add Tasks</span>}
           </div>
-         </div>
-          
         </div>
       </div>
     </header>

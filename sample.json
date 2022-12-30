@@ -1,12 +1,56 @@
 {
- "todo":[
-  {
-    "id":1,
-    "activity":"Go to gym",
-    "remindertime":"2:00",
-    "createdate":"2022-10-12",
-    "completed":"false",
-    "deleted":"false"
-  }
- ]
+  "todo": [
+    {
+      "id": "1672408472247",
+      "email": "sankar.yalamandla@tigeranalytics.com",
+      "title": "ygjbd",
+      "pendinglist": [
+        {
+          "name": "wqfed",
+          "id": "1672408866314",
+          "completed": false
+        },
+        {
+          "name": "tyhjk",
+          "id": "1672408867386",
+          "completed": false
+        },
+        {
+          "name": "fda",
+          "id": "1672408868286",
+          "completed": false
+        }
+      ],
+      "completedlist": [],
+      "deleted": false
+    },
+    {
+      "id": "1672408780911",
+      "email": "sankar.yalamandla@tigeranalytics.com",
+      "title": "efdfadv",
+      "pendinglist": [],
+      "completedlist": [
+        {
+          "name": "wdf",
+          "id": "1672408808443",
+          "completed": true
+        }
+      ],
+      "deleted": false
+    },
+    {
+      "id": "1672408926732",
+      "email": "ysankarmukesh@gmail.com",
+      "title": "wqdefs",
+      "pendinglist": [],
+      "completedlist": [
+        {
+          "name": "feqd",
+          "id": "1672408928423",
+          "completed": true
+        }
+      ],
+      "deleted": false
+    }
+  ]
 }
