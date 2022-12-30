@@ -1,0 +1,12 @@
+{
+ "todo":[
+  {
+    "id":1,
+    "activity":"Go to gym",
+    "remindertime":"2:00",
+    "createdate":"2022-10-12",
+    "completed":"false",
+    "deleted":"false"
+  }
+ ]
+}
